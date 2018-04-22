@@ -1,0 +1,22 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav [opened]="!mobile" #sidenav [mode]="sideNavMode">
+    <mat-nav-list>
+      <ng-template ngFor let-view [ngForOf]="views" let-even="even" let-odd="odd" let-rowIndex="index">
+        <a mat-list-item [routerLink]="view.link" routerLinkActive="active-link" (click)="mobile ? sidenav.close() : {}">
+          <mat-icon mat-list-icon>{{view.icon}}</mat-icon>
+          <span mat-line>{{view.name}}</span>
+          <span mat-line class="secondary">{{view.description}}</span>
+        </a>
+      </ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button> Angular Starter App
+  </mat-toolbar>
+<mat-card id="my-page-card">
+  <router-outlet (activate)="activateEvent($event)" (deactivate)="deactivateEvent($event)"></router-outlet>
+</mat-card>
+</mat-sidenav-container>
+<my-store-devtools *ngIf="showMonitor"></my-store-devtools>

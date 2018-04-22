@@ -1,0 +1,8 @@
+{
+    "realm": "",
+    "auth-server-url": "",
+    "ssl-required": "external",
+    "resource": "",
+    "public-client": true,
+    "use-resource-role-mappings": true
+}
